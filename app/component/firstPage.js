@@ -16,27 +16,27 @@ import React, {
 } from 'react-native';
 import secondPage from './secondPage';
 
- class firstPage extends React.Component {
-   	constructor(props) {
-		super(props);
-		this.state = {
-			name: "123",
-			age: null,
-		}
-	}
-  	_openPage() {
-		this.props.navigator.push({
+class firstPage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: "123",
+      age: null,
+    }
+  }
+  _openPage() {
+    this.props.navigator.push({
       title: 'secondPage',
-			component: secondPage,
-			params: {
-				name: this.state.name,
-				age: this.state.age,
-				changeMyAge: (age) => {
-					this.setState({ age })
-				}
-			}
-		})
-	}
+      component: secondPage,
+      params: {
+        name: this.state.name,
+        age: this.state.age,
+        changeMyAge: (age) => {
+          this.setState({ age })
+        }
+      }
+    })
+  }
   render() {
     return (
       <View style={styles.container}>
@@ -44,15 +44,15 @@ import secondPage from './secondPage';
           Welcome to React Native!
         </Text>
         <TouchableOpacity style={{ flexDirection: 'row' }}>
-          <Text style={styles.instructions} onPress={this._openPage.bind(this) }>
+          <Text style={styles.instructions} onPress={this._openPage.bind(this)}>
             secondPage
           </Text>
         </TouchableOpacity>
       </View>
     );
   }
-  demo1(){
-    
+  demo1() {
+
   }
 }
 

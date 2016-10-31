@@ -3,8 +3,11 @@ import React, {
 	Text,
 	TouchableOpacity
 } from 'react-native';
-import firstPage from './component/firstPage';//MyListView
 import MyListView from './component/mListView';//MyListView
+import firstPage from './component/firstPage';//MyListView
+import propsStatus from './component/propsStatus';//MyListView
+import netRequest from './component/netRequest';//MyListView
+// import progressBarView from './component/progressBarView';//MyListView
 class Splash extends React.Component {
 	_pageChange() {
 		this.props.navigator.push({
@@ -13,15 +16,15 @@ class Splash extends React.Component {
 		})
 	}
 	_listView() {
-	this.props.navigator.push({
-		title: 'MyListView',
-		component: MyListView
-	})
-	}
-	_scrollView() {
 		this.props.navigator.push({
-			title: 'firstPage',
-			component: firstPage
+			title: 'MyListView',
+			component: MyListView
+		})
+	}
+	_progressBar() {
+		this.props.navigator.push({
+			title: 'MyListView',
+			component: MyListView
 		})
 	}
 	_drawerLayoutAndroid() {
@@ -30,26 +33,38 @@ class Splash extends React.Component {
 			component: firstPage
 		})
 	}
+	propsStatus() {
+		this.props.navigator.push({
+			title: 'propsStatus',
+			component:propsStatus
+		})
+	}
+	netRequest() {
+		this.props.navigator.push({
+			title: 'netRequest',
+			component:netRequest
+		})
+	}
 	render() {
 
-const styles = {
-  container: {
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  title: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-};
+		const styles = {
+			container: {
+				flexDirection: 'column',
+				justifyContent: 'center',
+				alignItems: 'center',
+				backgroundColor: '#F5FCFF',
+			},
+			title: {
+				fontSize: 20,
+				textAlign: 'center',
+				margin: 10,
+			},
+			instructions: {
+				textAlign: 'center',
+				color: '#333333',
+				marginBottom: 5,
+			},
+		};
 
 		return (
 			<View style={{ flex: 1, alignItems: 'center', backgroundColor: '#FFFFFF' }}>
@@ -63,8 +78,16 @@ const styles = {
 					<Text style={styles.instructions}>listView</Text>
 				</TouchableOpacity>
 
-				<TouchableOpacity onPress={this._scrollView.bind(this)}>
-					<Text style={styles.instructions}>scrollView</Text>
+				<TouchableOpacity onPress={this.propsStatus.bind(this)}>
+					<Text style={styles.instructions}>propsStatus</Text>
+				</TouchableOpacity>
+
+				<TouchableOpacity onPress={this._progressBar.bind(this)}>
+					<Text style={styles.instructions}>progressBar</Text>
+				</TouchableOpacity>
+
+				<TouchableOpacity onPress={this.netRequest.bind(this)}>
+					<Text style={styles.instructions}>netRequest</Text>
 				</TouchableOpacity>
 
 				<TouchableOpacity onPress={this._drawerLayoutAndroid.bind(this)}>

@@ -36,28 +36,28 @@ class navigation extends Component {
         fontSize: 18, color: '#FFFFFF', fontWeight: '400'
       },
       container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#F5FCFF',
+      },
+      welcome: {
+        fontSize: 20,
+        textAlign: 'center',
+        margin: 10,
+      },
+      instructions: {
+        textAlign: 'center',
+        color: '#333333',
+        marginBottom: 5,
+      },
     }
 
     var routeMapper = {
       LeftButton(route, navigator, index, navState) {
-        if(index > 0) {
+        if (index > 0) {
           return (
-            <TouchableOpacity 
+            <TouchableOpacity
               onPress={() => navigator.pop()}
               style={styles.button}>
               <Text style={styles.buttonText}>Back</Text>
@@ -65,7 +65,7 @@ class navigation extends Component {
           );
         } else {
           return (
-            <TouchableOpacity 
+            <TouchableOpacity
               onPress={() => navigator.pop()}
               style={styles.button}>
               <Text style={styles.buttonText}>Logo</Text>
@@ -74,9 +74,9 @@ class navigation extends Component {
         }
       },
       RightButton(route, navigator, index, navState) {
-        if(index > 0 && route.rightButton) {
+        if (index > 0 && route.rightButton) {
           return (
-            <TouchableOpacity 
+            <TouchableOpacity
               onPress={() => navigator.pop()}
               style={styles.button}>
               <Text style={styles.buttonText}></Text>
@@ -101,24 +101,24 @@ class navigation extends Component {
         style={{
           alignItems: 'center',
           backgroundColor: '#55ACEE',
-          shadowOffset:{
-              width: 1,
-              height: 0.5,
+          shadowOffset: {
+            width: 1,
+            height: 0.5,
           },
           shadowColor: '#55ACEE',
-          shadowOpacity: 0.8,          
-          }}
+          shadowOpacity: 0.8,
+        }}
         routeMapper={routeMapper}
-      />
+        />
     );
   }//_renderNavBar
-  
+
   render() {
     return (
       <Navigator
         initialRoute={defaultRoute}
         renderScene={this._renderScene}
-        sceneStyle={{paddingTop: (Platform.OS === 'android' ? 66 : 74)}}
+        sceneStyle={{ paddingTop: (Platform.OS === 'android' ? 66 : 74) }}
         navigationBar={this._renderNavBar()} />
     );
   }
